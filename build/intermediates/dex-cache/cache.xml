@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/pre-dexed/debug/classes-53bf1bde69c3c383a5bb2593ef10205379a66a34.jar" />
+    </item>
+    <item
+        jar="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-35c623565370e2b1b691e8633194c216c4b7dd10.jar" />
+    </item>
+    <item
+        jar="/Users/noah/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-d50ca8a76871b0ea5569bba8ccb6ad668bd87387.jar" />
+    </item>
+    <item
+        jar="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/pre-dexed/debug/classes-c0a00f15e9da05a0862a9c4b955a7c842a62b07d.jar" />
+    </item>
+    <item
+        jar="/Users/noah/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-1bdbacbe5e10878f085586f32fcb5768dac8ac78.jar" />
+    </item>
+    <item
+        jar="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/libs/Parse-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="35921ead63f6cafd9f84ff178c60fe474c4b17a6">
+        <dex dex="/Users/noah/dev/AndroidStudioProjects/CTSFishFry/app/build/intermediates/pre-dexed/debug/Parse-1.9.3-65d174aabfb90ae8ab3ab2f2287ca1b513db2fe9.jar" />
+    </item>
+
+</items>
