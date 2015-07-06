@@ -17,16 +17,42 @@
 
     <EditText
         android:id="@+id/etPhone"
-        android:hint="Name"
+        android:hint="Phone Number"
         android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btnTimePicker"
-        android:text="Pick Time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/tvMenuItem1"
+            android:text="Tilapia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"/>
+
+        <NumberPicker
+            android:id="@+id/npMenuItem1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvMenuItem1"/>
+
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvTimePicker"
+        android:text="12:00 AM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:clickable="true"/>
+
 
     <Button
         android:id="@+id/btnPlaceOrder"

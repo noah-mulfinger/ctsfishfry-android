@@ -7,11 +7,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.format.DateFormat;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -21,6 +25,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -30,11 +35,13 @@ public class MainActivity extends ActionBarActivity {
 
     private EditText etName;
     private EditText etPhone;
-    public static Button btnTimePicker;
+    public static TextView tvTimePicker;
+
+    private NumberPicker npMenuItem1;
 
     private int menuSize;
 
-    private Calendar pickupTime;
+    private static Calendar pickupTime;
     private JSONArray orderArray;
     private int cost;
 
@@ -47,12 +54,23 @@ public class MainActivity extends ActionBarActivity {
 
         Parse.initialize(this, getString(R.string.key1), getString(R.string.key2));
 
-        initializeValues();
+
 
         etName = (EditText) findViewById(R.id.etName);
         etPhone = (EditText) findViewById(R.id.etPhone);
         Button btnPlaceOrder = (Button) findViewById(R.id.btnPlaceOrder);
-        btnTimePicker = (Button) findViewById(R.id.btnTimePicker);
+        tvTimePicker = (TextView) findViewById(R.id.tvTimePicker);
+//
+//        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
+//        for (int i = 1; i < 10; i++) {
+//            TextView tvItem = new TextView(this);
+//            tvItem.setText("Button " + i);
+//
+//        }
+
+        npMenuItem1 = (NumberPicker) findViewById(R.id.npMenuItem1);
+        npMenuItem1.setMaxValue(9);
+        npMenuItem1.setMinValue(0);
 
         btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +89,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-
-        btnTimePicker.setOnClickListener(new View.OnClickListener() {
+        tvTimePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment newFragment = new TimePickerFragment();
@@ -80,10 +97,20 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+
+//        tvTimePicker.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DialogFragment newFragment = new TimePickerFragment();
+//                newFragment.show(getSupportFragmentManager(), "timePicker");
+//            }
+//        });
+        resetFields();
     }
 
-    private void initializeValues() {
-
+    private void resetFields() {
+        etName.setText("");
+        etPhone.setText("");
         menuSize = 5;
         orderArray = new JSONArray();
         for (int i = 0; i < menuSize; i++) {
@@ -96,14 +123,25 @@ public class MainActivity extends ActionBarActivity {
 
     private void placeOrder() {
 
-        ParseObject testObject = new ParseObject("Order");
-        testObject.put("name", etName.getText().toString());
-        testObject.put("phone", etPhone.getText().toString());
-        testObject.put("orderList", orderArray);
-        testObject.put("cost", cost);
-        testObject.put("pickupTime", pickupTime);
-        testObject.put("completed", false);
-        testObject.saveInBackground();
+        try {
+            orderArray.put(0, npMenuItem1.getValue());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ParseObject order = new ParseObject("Order");
+        order.put("name", etName.getText().toString());
+        order.put("phone", etPhone.getText().toString());
+        order.put("orderList", orderArray);
+        order.put("cost", cost);
+        order.put("pickupTime", pickupTime.getTime());
+        order.put("completed", false);
+        order.saveInBackground();
+
+        Toast toast = Toast.makeText(this, "Order placed!", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+        resetFields();
     }
 
 
@@ -145,7 +183,8 @@ public class MainActivity extends ActionBarActivity {
         }
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            btnTimePicker.setText(String.valueOf(hourOfDay % 12)+":"+String.valueOf(minute));
+            pickupTime.set(2015, 10, 10, hourOfDay, minute);
+            tvTimePicker.setText(String.valueOf(hourOfDay)+":"+String.valueOf(minute));
         }
 
 
