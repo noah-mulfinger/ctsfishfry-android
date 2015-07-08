@@ -68,9 +68,9 @@ public class MainActivity extends ActionBarActivity {
 //
 //        }
 
-        npMenuItem1 = (NumberPicker) findViewById(R.id.npMenuItem1);
-        npMenuItem1.setMaxValue(9);
-        npMenuItem1.setMinValue(0);
+//        npMenuItem1 = (NumberPicker) findViewById(R.id.npMenuItem1);
+//        npMenuItem1.setMaxValue(9);
+//        npMenuItem1.setMinValue(0);
 
         btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
             @Override
